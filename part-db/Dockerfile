@@ -1,6 +1,6 @@
 # Wrap the official Part-DB image so it runs as a Home Assistant add-on.
 # The base image is published multi-arch (amd64/arm64) on Docker Hub.
-ARG BUILD_FROM=partdborg/part-db:v2.14.0
+ARG BUILD_FROM=marcohald/part-db:master
 FROM ${BUILD_FROM}
 
 # jq is used by run.sh to read the add-on options from /data/options.json.
