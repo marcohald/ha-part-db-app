@@ -1,8 +1,8 @@
 # Part-DB app
 
 Runs [Part-DB](https://github.com/Part-DB/Part-DB-server), an open source
-inventory management system for electronic components, from the official
-`partdborg/part-db` Docker image.
+inventory management system for electronic components, from the
+`marcohald/part-db` Docker image.
 
 ## Installation
 
@@ -36,6 +36,11 @@ change it.
 | `trusted_proxies` | `172.30.32.0/23,127.0.0.0/8,::1` | Trusted reverse-proxy ranges. |
 | `trusted_hosts` | (empty) | Optional unquoted regex of allowed host names, e.g. `^(192\.168\.1\.253)$`. Empty = accept any host. |
 | `database_url` | (empty) | Optional external DB DSN. Empty = built-in SQLite. |
+| `header_auth_enabled` | `false` | Enable authentication via HTTP Headers (useful for reverse proxies/Ingress). |
+| `header_auth_header_name` | `REMOTE_USER` | The HTTP header name that passes the username. |
+| `header_auth_auto_create` | `true` | Automatically create a user if they do not exist. |
+| `header_auth_disable_password_expiration` | `true` | Disable password expiration for auto-created users. |
+| `header_auth_default_group` | (empty) | Group name to assign to auto-created users. |
 
 ## Data persistence
 
@@ -79,7 +84,7 @@ With `db_automigrate` enabled the schema is created and upgraded automatically.
 ## Updating Part-DB
 
 This app pins a specific upstream version. To move to a newer Part-DB
-release, edit `build.yaml` (the `partdborg/part-db:vX.Y.Z` tags) and the
+release, edit `build.yaml` (the `marcohald/part-db` tags) and the
 `version` in `config.yaml`, then rebuild the app.
 
 ## Notes and limitations
