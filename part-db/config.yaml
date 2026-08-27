@@ -1,5 +1,5 @@
 name: Part-DB
-version: 2.14.0_6
+version: 2.14.0_7
 slug: part_db
 description: Part-DB electronic parts inventory, running the official partdborg/part-db image (https://github.com/Part-DB/Part-DB-server)
 url: https://github.com/argaar/ha-part-db-app
@@ -32,6 +32,11 @@ options:
   trusted_proxies: 172.30.32.0/23,127.0.0.0/8,::1
   trusted_hosts: ""
   database_url: ""
+  header_auth_enabled: false
+  header_auth_header_name: REMOTE_USER
+  header_auth_auto_create: true
+  header_auth_disable_password_expiration: true
+  header_auth_default_group: ""
 schema:
   default_lang: str
   default_timezone: str
@@ -43,3 +48,8 @@ schema:
   trusted_proxies: str
   trusted_hosts: str?
   database_url: str?
+  header_auth_enabled: bool
+  header_auth_header_name: str
+  header_auth_auto_create: bool
+  header_auth_disable_password_expiration: bool
+  header_auth_default_group: str?

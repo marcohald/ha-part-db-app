@@ -1,6 +1,6 @@
 build_from:
-  amd64: partdborg/part-db:v2.14.0
-  aarch64: partdborg/part-db:v2.14.0
+  amd64: marcohald/part-db:master
+  aarch64: marcohald/part-db:master
 labels:
   org.opencontainers.image.title: "Part-DB"
   org.opencontainers.image.description: "Part-DB for Home Assistant (wraps partdborg/part-db)"

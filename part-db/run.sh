@@ -69,6 +69,13 @@ export CHECK_FOR_UPDATES=0
 # (SQLite at uploads/app.db, which is persisted via ${DATA}/uploads).
 setenv DATABASE_URL "$(get database_url)"
 
+# Header Authentication options
+export HEADER_AUTH_ENABLED="$(getbool01 header_auth_enabled)"
+export HEADER_AUTH_AUTO_CREATE="$(getbool01 header_auth_auto_create)"
+export HEADER_AUTH_DISABLE_PASSWORD_EXPIRATION="$(getbool01 header_auth_disable_password_expiration)"
+setenv HEADER_AUTH_HEADER_NAME "$(get header_auth_header_name)"
+setenv HEADER_AUTH_DEFAULT_GROUP "$(get header_auth_default_group)"
+
 # APP_SECRET: Symfony uses it for CSRF tokens, signed URLs and remember-me
 # cookies. The image ships a well-known default, so generate a unique value on
 # first start and persist it on /config. Keeping it stable across restarts and
