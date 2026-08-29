@@ -37,6 +37,7 @@ options:
   header_auth_auto_create: true
   header_auth_disable_password_expiration: true
   header_auth_default_group: ""
+  env_vars: []
 schema:
   default_lang: str
   default_timezone: str
@@ -53,3 +54,6 @@ schema:
   header_auth_auto_create: bool
   header_auth_disable_password_expiration: bool
   header_auth_default_group: str?
+  env_vars:
+    - name: str
+      value: str

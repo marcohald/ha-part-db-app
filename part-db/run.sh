@@ -69,6 +69,19 @@ export CHECK_FOR_UPDATES=0
 # (SQLite at uploads/app.db, which is persisted via ${DATA}/uploads).
 setenv DATABASE_URL "$(get database_url)"
 
+# Custom Environment Variables
+ENV_VARS_COUNT=$(jq -r '(.env_vars // []) | length' "$OPTIONS")
+if [ "$ENV_VARS_COUNT" -gt 0 ]; then
+  log "Exporting custom environment variables..."
+  for i in $(seq 0 $((ENV_VARS_COUNT - 1))); do
+    ENV_NAME=$(jq -r ".env_vars[$i].name // empty" "$OPTIONS")
+    ENV_VALUE=$(jq -r ".env_vars[$i].value // empty" "$OPTIONS")
+    if [ -n "$ENV_NAME" ]; then
+      export "$ENV_NAME=$ENV_VALUE"
+    fi
+  done
+fi
+
 # Header Authentication options
 export HEADER_AUTH_ENABLED="$(getbool01 header_auth_enabled)"
 export HEADER_AUTH_AUTO_CREATE="$(getbool01 header_auth_auto_create)"
