@@ -36,3 +36,6 @@ configuration:
       Lascia vuoto per usare il database SQLite integrato (persistente sul volume
       dati dell'app). Per usare MySQL/MariaDB o PostgreSQL, fornisci un DSN
       Doctrine (Connection String), es. mysql://user:pass@host:3306/partdb?serverVersion=10.11.2-MariaDB
+  env_vars:
+    name: Variabili d'ambiente (Environment Variables)
+    description: Aggiungi variabili d'ambiente personalizzate dalla documentazione di Part-DB per configurare l'app (es. MAILER_DSN per le impostazioni email).
